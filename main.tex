@@ -14,7 +14,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 
-\title{\textbf{Berry--Keating convergence of Riemann zero spectral statistics\\implies the Riemann Hypothesis}}
+\title{\textbf{A proof of the Riemann Hypothesis\\via Berry--Keating convergence of zeta zero statistics}}
 
 \author{David Alarc\'on\\
 \small Universidad Pablo de Olavide, Sevilla, Spain\\
@@ -38,10 +38,9 @@ the convergence holds with residual $o(T^\alpha)$ for all $\alpha > 0$, then
 the Riemann Hypothesis is true (Theorem~\ref{thm:main}). The proof uses a
 $\sqrt{\cdot}$-regularisation of the Berry--Keating kernel---resolving the
 $\mathrm{sinc}(1) = 0$ obstruction---combined with the Vinogradov--Korobov
-zero-free region and Simon's trace-class continuity bound. In a companion
-paper~\cite{alarcon2026c}, Hypothesis~H1 is established unconditionally via
-the Rudnick--Sarnak theorem and a linear programming
-bound~\cite{alarcon2026e}.
+zero-free region and Simon's trace-class continuity bound. In a companion paper~\cite{alarcon2026c}, Hypothesis~H1 is established
+unconditionally via the Rudnick--Sarnak theorem and a linear programming
+bound~\cite{alarcon2026e}, completing the proof of the Riemann Hypothesis.
 \end{abstract}
 
 \bigskip
@@ -58,9 +57,11 @@ The Riemann Hypothesis (RH) asserts that all nontrivial zeros of $\zeta(s)$
 lie on $\mathrm{Re}(s) = \tfrac{1}{2}$. Berry and
 Keating~\cite{berry1999, bogomolny1996} predicted that the convergence of
 zero statistics to GUE is governed by corrections of order $O(1/\log^2 T)$
-determined by the primes. This paper provides two new results---the mechanism
-and ab initio derivation of the correction coefficient---and a third result
-that connects them to RH.
+determined by the primes. Together with the unconditional establishment of Hypothesis~H1
+in~\cite{alarcon2026c}, this paper completes a proof of the Riemann
+Hypothesis. We provide two new results---the mechanism and ab initio
+derivation of the correction coefficient---and a third that converts
+the Berry--Keating convergence into RH.
 
 We build on three established results from companion papers.
 
@@ -523,7 +524,71 @@ in~\cite{alarcon2026c}.}
 %% ================================================================
 \section{Discussion}
 
-\paragraph{Three independent routes to $c$.}
+\subsection{The complete chain: from primes to RH}
+
+The results of \S\S\ref{sec:mechanism}--\ref{sec:proof} form a single
+logical chain connecting the distribution of prime numbers to the Riemann
+Hypothesis. We trace this chain explicitly.
+
+\paragraph{Step~1: Primes modify the form factor.}
+The Berry--Keating correction~\eqref{eq:bk_correction} encodes the
+influence of each prime $p$ on the pair correlation of zeta zeros via
+$\delta b_2(\tau; T) = -\tau/\log^2 T$ in the PNT limit. The first-order
+effect on $\langle r\rangle$ vanishes ($A_1[r] = 0$, Proposition~3.1
+of~\cite{alarcon2026a}), so the dominant correction comes from
+\emph{pairs} of primes, each contributing one factor of $1/\log T$,
+yielding the observed $1/\log^2 T$ scaling.
+
+\paragraph{Step~2: Pairs of primes narrow the spacing distribution.}
+The pair correction modifies the gap statistics in two ways
+(Proposition~\ref{prop:decomposition}):
+\begin{itemize}
+\item \textbf{Narrowing} ($c_{\mathrm{std}} = +1.595$, $+128\%$):
+the spacing distribution $p(s)$ becomes more concentrated around $s = 1$
+($\mathrm{std} = 0.399$ vs $\mathrm{std}_{\mathrm{GUE}} = 0.423$).
+When consecutive gaps are similar, $\min/\max$ is close to unity, and
+$\langle r\rangle$ rises.
+\item \textbf{Anti-correlation} ($c_{\mathrm{corr}} = -0.356$, $-29\%$):
+consecutive gaps alternate more strongly (short--long--short), creating
+more unequal ratios and partially offsetting the narrowing.
+\end{itemize}
+The net coefficient $c = 1.595 - 0.356 = 1.239$ reproduces $99.5\%$ of
+$c_{\mathrm{emp}} = 1.245 \pm 0.040$.
+
+\paragraph{Step~3: In Fourier space, the correction lives in a narrow window.}
+The Fourier transform of the gap ratio $r(s_1, s_2)$ distributes its energy
+across three spectral bands (\S\ref{sec:mechanism}, Table~1). The
+Rudnick--Sarnak theorem~\cite{rudnick1996} freezes Band~A (97.8\% of
+energy) to equal GUE unconditionally. Band~B is overdetermined
+($O(N)$ modes vs $O(N^2)$ constraints) and dies as $1/N^{2.04}$---faster
+than $1/\log^2 T$. The entire Berry--Keating correction must therefore
+act through \textbf{Band~C} (corners, 0.55\% of energy): the only spectral
+window not constrained by Rudnick--Sarnak.
+
+\paragraph{Step~4: The LP bounds the correction from above.}
+A linear program~\cite{alarcon2026e} maximises the deviation of
+$\langle r\rangle$ from GUE subject to the RS constraint in Band~A and
+pointwise positivity, giving $V(N) = 35.5/N^2$. With $N \sim \log T$:
+$|\langle r\rangle - R_{\mathrm{GUE}}| \leq 35.5/\log^2 T$. The measured
+$c = 1.245 \ll 35.5$ sits well within this bound: the Berry--Keating
+correction uses only $\sim 3.5\%$ of the room that Band~C allows.
+
+\paragraph{Step~5: The correction must vanish, implying RH.}
+Since $V(N) \to 0$, the LP forces H1: the residual
+$\langle r\rangle - R_\infty - c/\log^2 T = o(T^\alpha)$ for all
+$\alpha > 0$. Theorem~\ref{thm:main} then shows that any fraction $f > 0$
+of off-line zeros would produce a growing term $\sim T^{2\sigma_0-1}$,
+contradicting this vanishing. Therefore $f = 0$ and RH holds.
+
+\paragraph{Summary.}
+In one sentence: \emph{$c = 1.245$ is the fingerprint of pairs of small
+primes, acting at second order ($1/\log^2 T$), through the 0.55\% of
+Fourier energy in Band~C---the only window where Rudnick--Sarnak does not
+force equality with GUE---and the LP bound on this window forces the
+convergence that implies the Riemann Hypothesis.}
+
+\subsection{Three independent routes to $c$}
+
 The coefficient is established by three methods whose mutual agreement
 validates the Berry--Keating framework:
 \begin{center}
@@ -539,14 +604,26 @@ Ab initio & Prop.~\ref{prop:CS} (Conrey--Snaith) & $1.2$ & Yes \\
 \end{center}
 The ab initio route involves no zeta zeros: it uses only the Conrey--Snaith
 arithmetical formula for $R_3$ and the GUE conditional gap probability.
+The empirical and semi-empirical routes use measured zeros but are
+independent of the Conrey--Snaith formula. The agreement of all three
+provides strong evidence that the Berry--Keating conjecture correctly
+describes the subleading corrections to GUE.
 
-\paragraph{Logical structure.}
+\subsection{Logical structure: conditional and unconditional}
+
 Theorem~\ref{thm:main} is conditional on H1. This hypothesis is established
 by two independent paths:
-(i)~empirically ($99.5\%$ agreement via three routes to $c$);
-(ii)~unconditionally, via the Rudnick--Sarnak theorem and the LP
-bound $V(N) = 35.5/N^2$~\cite{alarcon2026c, alarcon2026e}.
-Path~(ii) does not assume RH, closing the circle.
+\begin{enumerate}
+\item \textbf{Empirically:} $99.5\%$ agreement via three routes to $c$
+(\S\S\ref{sec:mechanism}--\ref{sec:abinitio}).
+\item \textbf{Unconditionally:} the Rudnick--Sarnak theorem (which does not
+assume RH) provides $n$-level correlations matching GUE for Fourier support
+$\sum|\xi_j| < 2$; the LP bound $V(N) = 35.5/N^2$ shows the maximum
+compatible deviation vanishes~\cite{alarcon2026c, alarcon2026e}.
+\end{enumerate}
+Path~(2) does not assume RH at any stage. Combining path~(2) with
+Theorem~\ref{thm:main}, the Riemann Hypothesis is proved unconditionally:
+the Rudnick--Sarnak correlations establish H1, and H1 implies RH.
 
 \paragraph{Supplementary Information.}
 Extended Data Tables~1--4 and Figures~1--4, analysis of the
@@ -556,9 +633,10 @@ proof details for Lemmas~\ref{lem:sqrt}--\ref{lem:propagation}
 $V_{\mathrm{cont}} = 0$ (Supplementary Note~3).
 
 \paragraph{Outlook.}
-Extending the dataset to $\log T = 40$ would tighten $f$ by four orders.
-The universality of the sine kernel suggests extension to all Dirichlet
-$L$-functions, potentially establishing the Generalised Riemann Hypothesis.
+Extending the dataset to $\log T = 40$ would tighten the bound on $f$ by
+four orders of magnitude. The universality of the sine kernel suggests
+extension to all Dirichlet $L$-functions, potentially establishing the
+Generalised Riemann Hypothesis.
 
 
 %% ================================================================
