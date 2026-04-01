@@ -187,6 +187,42 @@ partially offset by anti-correlation ($c_{\mathrm{corr}} = -0.356$).}
 \label{fig:decomposition}
 \end{figure}
 
+\subsection{Connection to the Fourier-space constraint}
+
+The decomposition in real space (Proposition~\ref{prop:decomposition})
+corresponds precisely to the spectral band structure
+of~\cite{alarcon2026e}. The Fourier transform of $r(s_1, s_2)$
+distributes its energy across three bands defined by the sine kernel
+support $|\xi| < \tfrac{1}{2}$:
+\begin{center}
+\begin{tabular}{llrl}
+\toprule
+Band & Region & Energy & Status \\
+\midrule
+A (centre) & $|\xi_1|, |\xi_2| < \tfrac{1}{2}$ & 97.8\% & Frozen by RS \\
+B (edges) & one $|\xi_j| < \tfrac{1}{2}$ & 1.6\% & Overdetermined: $\|h_B\| \sim 1/N^{2.04}$ \\
+C (corners) & $|\xi_1|, |\xi_2| > \tfrac{1}{2}$ & 0.55\% & Squeezed: $\|h_C\|_{L^1} \sim 1/N^{1.45}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The Rudnick--Sarnak theorem~\cite{rudnick1996} freezes Band~A (97.8\% of
+energy) to equal GUE unconditionally. Band~B is overdetermined ($O(N)$
+modes vs $O(N^2)$ positivity constraints) and vanishes faster than
+$1/\log^2 T$. The entire Berry--Keating correction therefore acts through
+\textbf{Band~C}: the 0.55\% of Fourier energy in the corners, which is
+the only spectral window not constrained by Rudnick--Sarnak.
+
+The LP bound~\cite{alarcon2026e} quantifies this: the maximum deviation
+of $\langle r\rangle$ from GUE compatible with the RS constraint and
+positivity is $V(N) = 35.5/N^2$, consistent with the measured
+$c = 1.245 \ll 35.5$. The real-space narrowing
+($c_{\mathrm{std}} = +1.595$) corresponds to redistribution of
+Fourier weight from Band~A into Band~C; the anti-correlation
+($c_{\mathrm{corr}} = -0.356$) corresponds to the constraint that
+Band~B, being overdetermined, cannot accommodate the full correction.
+The net $c = 1.239$ is the residual that Band~C can sustain.
+
 
 %% ================================================================
 \section{Ab initio derivation via Conrey--Snaith}
